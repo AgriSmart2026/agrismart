@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AgriSmart</title>
+<style>
+body{font-family:Arial,sans-serif;background:#f1f7ef;margin:0;color:#24352a}
+header{background:#176b3a;color:white;padding:25px 15px;text-align:center}
+header h1{margin:0;font-size:29px}
+header p{margin-bottom:0}
+main{padding:18px;max-width:650px;margin:auto}
+.card{background:white;padding:20px;margin:15px 0;border-radius:15px;box-shadow:0 2px 9px #0001}
+h2{color:#176b3a;font-size:20px}
+select,input{width:100%;padding:13px;margin:9px 0;border:1px solid #ccc;border-radius:9px;box-sizing:border-box;font-size:16px}
+button{background:#176b3a;color:white;border:0;border-radius:9px;padding:13px;width:100%;font-size:17px;margin-top:8px}
+.result{background:#e8f5e9;padding:15px;border-radius:10px;margin-top:12px;display:none}
+footer{text-align:center;padding:20px;color:#777}
+</style>
+</head>
+<body>
+<header>
+<h1>🌱 AgriSmart</h1>
+<p>همراه هوشمند کشاورزان جهان</p>
+</header>
+<main>
+<div class="card">
+<h2>🌾 به AgriSmart خوش آمدید</h2>
+<p>معلومات زراعتی، راهنمای کشت و مراقبت از محصولات خود را پیدا کنید.</p>
+</div>
+<div class="card">
+<h2>🌿 راهنمای محصولات زراعتی</h2>
+<label>محصول خود را انتخاب کنید:</label>
+<select id="crop">
+<option value="">انتخاب محصول</option>
+<option value="گندم">گندم</option>
+<option value="بادنجان رومی">بادنجان رومی</option>
+<option value="کچالو">کچالو</option>
+<option value="پیاز">پیاز</option>
+<option value="انگور">انگور</option>
+<option value="سیب">سیب</option>
+<option value="ذرت">ذرت</option>
+</select>
+<button onclick="showCrop()">نمایش معلومات</button>
+<div class="result" id="result"></div>
+</div>
+<div class="card">
+<h2>🔎 پرسش زراعتی</h2>
+<p>سوال خود را درباره محصولات زراعتی بنویسید:</p>
+<input id="question" placeholder="سوال شما چیست؟">
+<button onclick="ask()">ثبت سوال</button>
+<div class="result" id="answer"></div>
+</div>
+</main>
+<footer>AgriSmart © 2026</footer>
+<script>
+function showCrop(){
+let c=document.getElementById('crop').value;
+let r=document.getElementById('result');
+if(!c){alert('لطفاً یک محصول انتخاب کنید');return;}
+r.style.display='block';
+r.innerHTML='<b>محصول انتخاب شده: '+c+'</b><p>برای کشت موفق '+c+' به خاک مناسب، آب کافی، نور مناسب و مراقبت منظم نیاز است. شرایط آب و هوایی منطقه خود را نیز در نظر بگیرید.</p>';
+}
+function ask(){
+let q=document.getElementById('question').value;
+let a=document.getElementById('answer');
+if(!q.trim()){alert('لطفاً سوال خود را بنویسید');return;}
+a.style.display='block';
+a.innerHTML='سوال شما ثبت شد: '+q+'<p>برای دریافت پاسخ تخصصی، به بخش مشاوره زراعتی مراجعه کنید.</p>';
+}
+</script>
+</body>
+  </html>
